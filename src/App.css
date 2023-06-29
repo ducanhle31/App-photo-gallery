@@ -1,0 +1,144 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body{font-family: 'Open Sans', sans-serif;
+}
+img{ object-fit: contain;width: 343px;}
+.drop{ align-items: center; text-align: center; margin-bottom: 30px; font-size: 1.5rem;}
+.gallery-container{ align-items:center; margin: 100px;}
+.image-uploader{align-items:center; margin: 50px;}
+.viewImage{
+width: 100%;
+height: 100%;
+background: #000000e0;
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 0;left: 0;
+overflow: hidden; z-index: 10;
+}
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(237, 237, 237, 0.663);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  position: relative;
+}
+.button:hover{background-color: rgb(255, 255, 255);}
+.button i { color: rgb(0, 0, 0);font-size: 1.1rem;}
+
+.title {position: absolute; margin-top: -30px; margin-left: 30px; }
+
+.image-overlay-title{ font-size:18.72px;
+font-weight:700;margin-top: 5px; margin-left: 10px;}
+.input-edit-form{
+  border: none; margin-top: 5px; font-family: 'Roboto', sans-serif;   font-size:18.72px;margin-left: 10px;
+font-weight:700;margin-bottom: 17px;
+}
+input:focus, input:focus{
+    outline: none ; 
+}
+.input-title{ color: white; margin-top: 50px; border: none;   
+background-color:rgba(255, 255, 255, 0);
+font-family: 'Open Sans', sans-serif;
+font-size:14px;
+line-height:21px;box-shadow: 0 15px 50px #2020209e;}
+
+.input-title:focus, .input-title:focus{
+    outline: none ; 
+}
+
+.card  {
+position: relative;
+ transition: box-shadow .3s ease, transform .2s ease;
+}
+
+
+
+/*Card footer*/
+.card-social {
+ transform: translateY(10%); position: absolute;
+ display: flex;flex-direction: column;
+ justify-content: space-around;
+ width: 90%;
+ opacity: 0;
+ transition: transform .2s ease, opacity .2s ease;
+margin-top:-90px;margin-left: 0px;
+}
+.delete{transform: translateY(10%); position: absolute;
+ display: flex;flex-direction: column;align-items: center;
+ justify-content: space-around;color: white;border: 1px solid rgb(199, 199, 199);
+ width: 32px;height: 32px; right: 8px; margin-top: 8px;
+ opacity: 0;background-color: rgba(154, 154, 154, 0.534);border-radius: 10px;
+ transition: transform .2s ease, opacity .2s ease;top:0}
+
+.card-social__item {
+ list-style: none; color: rgb(255, 255, 255);
+font-size:14px;
+line-height:21px; margin-left: -20px;
+}
+
+
+.card-social__item svg {
+ display: block;
+ height: 18px;
+ width: 18px;
+ fill: #515F65;
+ cursor: pointer;
+ transition: fill 0.2s ease ,transform 0.2s ease;
+}
+
+
+
+/*Hover*/
+img:hover {
+ box-shadow: 0 8px 50px #23232333;
+}
+
+.card:hover .card-social {
+ transform: translateY(2%);
+ opacity: 1;
+}
+.card:hover .delete{
+   transform: translateY(2%);
+ opacity: 1;
+}
+.delete:hover{ border: 1px white solid;}
+
+
+.image-card {
+  position: relative;
+}
+
+.shake {
+  animation: shake 1s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+
+

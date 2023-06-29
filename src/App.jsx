@@ -1,6 +1,6 @@
 
 import './App.css'
-import ImageUploader from "./D";
+import ImageUploader from "./ImageUploader";
 
 function App() {
 

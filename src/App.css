@@ -142,7 +142,7 @@ img:hover {
  
 @media screen and (max-width: 1440px) {
   .image{ padding: 5px;padding-top: -5px}
-img{ object-fit: contain;max-width: 389px; width: 100%;}
+img{ object-fit: contain;min-width: 389px; width: 100%;}
 }
 
 @media screen and (min-width: 1280px) {

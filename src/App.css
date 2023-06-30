@@ -3,7 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body{font-family: 'Open Sans', sans-serif;
 }
-img{ object-fit: contain;width: 343px;}
+.dropzone{ min-height: 700px; width: 100%;}
+.masonrylist{margin-top: -680px;}
+.image{ padding: 5px; margin-bottom: -5px;}
+img{ object-fit: contain;width: 306px;}
 .drop{ align-items: center; text-align: center; margin-bottom: 30px; font-size: 1.5rem;}
 .gallery-container{ align-items:center; margin: 100px;}
 .image-uploader{align-items:center; margin: 50px;}
@@ -119,7 +122,6 @@ img:hover {
 .image-card {
   position: relative;
 }
-
 .shake {
   animation: shake 1s;
 }
@@ -138,7 +140,24 @@ img:hover {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+@media screen and (max-width: 1440px) {
+  .image{ padding: 5px;padding-top: -5px}
+img{ object-fit: contain;max-width: 321px;}
+}
 
+@media screen and (max-width: 1280px) {
+  .image{ padding: 5px;padding-top: -5px}
+img{ object-fit: contain;width: 281px;}
+}
 
+@media screen and (max-width: 768px) {
+  .image{ padding: 5px;padding-top: -5px}
+img{ object-fit: contain;min-width: 316px;}
+}
 
+@media screen and (max-width: 480px) {
+
+img{ object-fit: contain;min-width: 363px;margin-left: -5px;}
+.delete{ right: 3px; margin-top: 8px;}
+}
 

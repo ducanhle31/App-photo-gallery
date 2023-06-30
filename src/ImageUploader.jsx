@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDropzone } from "react-dropzone";
-import Masonry from "react-responsive-masonry";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const ImageUploader = () => {
   const [images, setImages] = useState([]);
@@ -127,6 +127,15 @@ const imgAction = (action) => {
       {...getRootProps()}
       className={`dropzone ${isDragActive ? "active" : ""}`}
     >
+    
+      <input className="inputdrag" {...getInputProps()} />
+      <div className="drop">
+        {isDragActive ? (
+          <p>Drop the images here...</p>
+        ) : (
+          <p>Drag and drop images here, or click to select images</p>
+        )}
+      </div>
       <div
         className="image-uploader"
         onClick={(event) => event.stopPropagation()}
@@ -141,7 +150,7 @@ const imgAction = (action) => {
               <i className="bi bi-x"></i>
             </button>
             <button
-              style={{ position: "absolute", left: "200px" }}
+              style={{ position: "absolute", left: "10%" }}
               className="button"
               onClick={() => imgAction("previous-img")}
             >
@@ -152,7 +161,7 @@ const imgAction = (action) => {
               style={{ width: "auto", maxWidth: "90%", maxHeight: "90%" }}
             />
             <button
-              style={{ position: "absolute", right: "200px" }}
+              style={{ position: "absolute", right: "10%" }}
               className="button"
               onClick={() => imgAction("next-img")}
             >
@@ -160,63 +169,49 @@ const imgAction = (action) => {
             </button>
           </div>
         )}
-        <div
-          {...getRootProps()}
-          className={`dropzone ${isDragActive ? "active" : ""}`}
-        >
-          <input {...getInputProps()} />
-
-          <div className="drop">
-            {isDragActive ? (
-              <p>Drop the images here...</p>
-            ) : (
-              <p>Drag and drop images here, or click to select images</p>
-            )}
-          </div>
-        </div>
-        <div ref={newImageRef}>
-          <Masonry
-            columnsCount={4}
-            gutter="10px"
-            ref={dropzoneRef}
-          
+        <div className={`dropzone ${isDragActive ? "active" : ""}`}></div>
+        <div ref={newImageRef} className="masonrylist">
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}
           >
-            {images.map((image, i) => (
-              <div
-                key={image.id} 
-                id={`image-${image.id}`}
-                className={`image-card image ${image.shake ? "shake" : ""}`}
-              >
-                <div className="card">
-                  <img
-                    src={image.dataURL}
-                    alt={image.title}
-                    onClick={() => viewImage(image, i)}
-                  />
+            <Masonry ref={dropzoneRef}>
+              {images.map((image, i) => (
+                <div
+                  key={image.id}
+                  id={`image-${image.id}`}
+                  className={`image-card image ${image.shake ? "shake" : ""}`}
+                >
+                  <div className="card">
+                    <img
+                      src={image.dataURL}
+                      alt={image.title}
+                      onClick={() => viewImage(image, i)}
+                    />
 
-                  <ul className="card-social">
-                    <li className="card-social__item i1">
-                      <input
-                        className="input-title"
-                        type="text"
-                        value={image.title}
-                        onChange={(e) => {
-                          handleEditImage(image.id, e.target.value),
-                            e.stopPropagation();
-                        }}
-                      />
-                    </li>
-                  </ul>
-                  <button
-                    className="delete"
-                    onClick={(e) => handleDeleteImage(image.id)}
-                  >
-                    <i className="bi bi-trash3"></i>
-                  </button>
+                    <ul className="card-social">
+                      <li className="card-social__item i1">
+                        <input
+                          className="input-title"
+                          type="text"
+                          value={image.title}
+                          onChange={(e) => {
+                            handleEditImage(image.id, e.target.value),
+                              e.stopPropagation();
+                          }}
+                        />
+                      </li>
+                    </ul>
+                    <button
+                      className="delete"
+                      onClick={(e) => handleDeleteImage(image.id)}
+                    >
+                      <i className="bi bi-trash3"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </Masonry>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </div>
       </div>
     </div>

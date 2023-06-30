@@ -142,22 +142,22 @@ img:hover {
  
 @media screen and (max-width: 1440px) {
   .image{ padding: 5px;padding-top: -5px}
-img{ object-fit: contain;max-width: 389px;}
+img{ object-fit: contain;max-width: 389px; width: 100%;}
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
   .image{ padding: 5px;padding-top: -5px}
-img{ object-fit: contain;width: 341px;}
+img{ object-fit: contain;max-width: 341px;width: 100%;}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .image{ padding: 5px;padding-top: -5px}
-img{ object-fit: contain;min-width: 316px;}
+img{ object-fit: contain;max-width: 316px;width: 100%;}
 }
 
 @media screen and (max-width: 480px) {
 
-img{ object-fit: contain;min-width: 363px;margin-left: -5px;}
+img{ object-fit: contain;min-width: 363px;margin-left: -5px; width: 100%;}
 .delete{ right: 3px; margin-top: 8px;}
 }
 

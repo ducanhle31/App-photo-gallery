@@ -24,6 +24,7 @@ const handleDrop = (acceptedFiles) => {
         dataURL: imageBase64,
         shake: true,
       };
+      console.log(file)
       setImages((prevImages) => {
         const updatedImages = [...prevImages, newImage];
         localStorage.setItem("images", JSON.stringify(updatedImages));
